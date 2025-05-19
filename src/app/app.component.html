@@ -1,0 +1,14 @@
+<div class="chat-container">
+  <h2 class="chat-title">Atendimento on-line</h2>
+
+  <div class="chat-box">
+    <div *ngFor="let msg of mensagens" [ngClass]="{'msg-user': msg.autor === 'Você', 'msg-bot': msg.autor !== 'Você'}" class="chat-message">
+      <strong>{{ msg.autor }}:</strong> {{ msg.texto }}
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input [(ngModel)]="novaMensagem" placeholder="Digite sua mensagem..." />
+    <button (click)="enviarMensagem()">Enviar</button>
+  </div>
+</div>
